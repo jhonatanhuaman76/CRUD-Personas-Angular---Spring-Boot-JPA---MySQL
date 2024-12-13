@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Persona } from '../Modelo/Persona';
 
 @Injectable({
@@ -24,6 +23,6 @@ export class ServiceService {
   }
 
   updatePersona(persona: Persona) {
-    return this.http.post<Persona>(this.Url +'/editar', persona);
+    return this.http.put<Persona>(this.Url +'/editar', persona);
   }
 }

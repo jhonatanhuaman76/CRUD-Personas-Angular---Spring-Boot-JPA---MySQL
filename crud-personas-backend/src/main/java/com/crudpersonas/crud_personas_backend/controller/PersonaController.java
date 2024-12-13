@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:5000", maxAge = 3600)
 @RestController
 @RequestMapping({"/personas"})
 public class PersonaController {
@@ -32,7 +31,7 @@ public class PersonaController {
         return service.guardarPersona(persona);
     }
 
-    @PostMapping
+    @PutMapping
     @RequestMapping({"/editar"})
     public Persona editarPersona(@RequestBody Persona persona) {
         return service.editarPersona(persona);
