@@ -3,6 +3,7 @@ package com.crudpersonas.crud_personas_backend.imp;
 import com.crudpersonas.crud_personas_backend.model.Persona;
 import com.crudpersonas.crud_personas_backend.repository.PersonaRepository;
 import com.crudpersonas.crud_personas_backend.service.PersonaService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +36,7 @@ public class PersonaServiceImp implements PersonaService {
     }
 
     @Override
+    @Transactional
     public void borrarPersona(Long id) {
         repository.deleteById(id);
     }

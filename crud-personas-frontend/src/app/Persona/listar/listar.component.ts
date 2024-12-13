@@ -23,4 +23,14 @@ export class ListarComponent {
     localStorage.setItem("id", persona.id.toString());
     this.router.navigate(['persona/edit']);
   }
+
+  eliminarPersona(persona: Persona) {
+    let ok = confirm('Desea eliminar a ' + persona.nombres + ' ' + persona.apellidos);
+
+    if (!ok) return;
+    
+    this.service.deletePersona(persona.id).subscribe(persona => {
+      this.service.getPersonas().subscribe(personas => this.personas = personas);
+    });
+  }
 }

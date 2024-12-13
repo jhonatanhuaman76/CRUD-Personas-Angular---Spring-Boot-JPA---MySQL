@@ -39,7 +39,7 @@ public class PersonaController {
 
     @DeleteMapping
     @RequestMapping({"/borrar/{id}"})
-    public void borrarPersona(Long id) {
+    public void borrarPersona(@PathVariable Long id) {
         service.borrarPersona(id);
     }
 }
