@@ -3,21 +3,24 @@
     <h3 class="fw-bold">Modificar Persona</h3>
   </div>
   <div class="card-body">
-    <form>
+    <form (ngSubmit)="modificarPersona()">
 
-      <div class="mb-3">
+      <div class="mb3">
         <label for="id" class="form-label">ID</label>
-        <input type="text" class="form-control" id="id" value="1" disabled>
+        <input type="text" class="form-control" id="id" placeholder="Ingrese el ID" [(ngModel)]="p.id" name="id"
+          required #id="ngModel" readonly>
       </div>
 
       <div class="mb-3">
         <label for="nombres" class="form-label">Nombres</label>
-        <input type="text" class="form-control" id="nombres" placeholder="Ingrese los nombres">
+        <input type="text" class="form-control" id="nombres" placeholder="Ingrese los nombres" [(ngModel)]="p.nombres"
+          name="nombres" required #name="ngModel">
       </div>
 
       <div class="mb-3">
         <label for="apellidos" class="form-label">Apellidos</label>
-        <input type="text" class="form-control" id="apellidos" placeholder="Ingrese los apellidos">
+        <input type="text" class="form-control" id="apellidos" placeholder="Ingrese los apellidos"
+          [(ngModel)]="p.apellidos" name="apellidos" required #surname="ngModel">
       </div>
 
       <button type="submit" class="btn btn-primary">Guardar</button>

@@ -1,17 +1,26 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Persona } from '../../Modelo/Persona';
+import { ServiceService } from '../../Service/service.service';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-listar',
   standalone: true,
-  imports: [],
+  imports: [NgFor],
   templateUrl: './listar.component.html',
   styleUrl: './listar.component.css'
 })
 export class ListarComponent {
-  constructor(private router: Router) { }
+  personas: Persona[] = [];
+  constructor(private router: Router, private service: ServiceService) { }
 
-  actualizarPersona() {
+  ngOnInit(): void {
+    this.service.getPersonas().subscribe(personas => this.personas = personas);
+  }
+
+  actualizarPersona(persona: Persona) {
+    localStorage.setItem("id", persona.id.toString());
     this.router.navigate(['persona/edit']);
   }
 }
